@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+.label{border-radius:2px;color:#fff;font-size:12px;line-height:1;margin-bottom:0;text-transform:capitalize;    border-radius: 4px;
+    font-size: 75%;
+    padding: 4px 7px;
+    margin-right: 5px;
+    font-weight: 700;
+    color: #fff !important;}
+.label-default
+{background-color:#bdc3c7 !important;border-color:#bdc3c7;box-shadow:none;color:#fff}
+.label-inverse-default{border:1px solid;border-color:#bdc3c7;color:#bdc3c7 !important}
+.label-inverse-primary{border:1px solid;border-color:#0f9c50;color:#0f9c50 !important}
+.label-inverse-success{border:1px solid;border-color:#2ecc71;color:#2ecc71 !important}
+.label-inverse-warning{border:1px solid;border-color:#f1c40f;color:#f1c40f !important}
+.label-inverse-danger{border:1px solid;border-color:#e74c3c;color:#e74c3c !important}
+.label-inverse-info{border:1px solid;border-color:#3498DB;color:#3498DB !important}
+.label-inverse-info-border{border:1px solid;border-color:#34495e;color:#34495e !important}
+.badge-inverse-default{border:1px solid;border-color:#bdc3c7;color:#bdc3c7 !important}
