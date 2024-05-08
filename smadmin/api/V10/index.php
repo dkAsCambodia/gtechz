@@ -103,10 +103,10 @@
 			}
 
 			$config = [
-				'api_key' => '9184c79a-6f9b5427-18fc6d49-2051ee89',
-				'secret_key' => 'd7f9f722-a9762d83-c6566542-261d6a10',
+				'api_key' => '07c784da-1ab7825e-d5742394-07a47b63',
+				'secret_key' => 'ef2bc47d-31ecf9a6-97bb9144-228b38dc',
 				'version' => 'v1',
-				'api_url' => 'https://prod.vizpay.io/'
+				'api_url' => 'https://apipoint.first2pay.io/'
 			];
 			$vizpay = new Vizpay($config);
 
