@@ -110,7 +110,6 @@
 				'api_url' => 'https://apipoint.first2pay.io/'
 			];
 			$vizpay = new Vizpay($config);
-
 			/* Deposit by QR Code */
 			$post_data = [
 				"order_id" => $payin_request_id,
