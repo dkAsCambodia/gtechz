@@ -65,7 +65,7 @@ if(!empty($_POST)){
 		}
 
         // Withdrawal verification URL code START
-            echo $verificationUrl = "https://payin.implogix.com/api/V3/payout/h2pay/verifytransaction.php?transId=" . $payout_request_id . "&key=" . $Key;
+         $verificationUrl = "https://payin.implogix.com/api/V3/payout/h2pay/verifytransaction.php?transId=" . $payout_request_id . "&key=" . $Key;
  
         $curl = curl_init();
         curl_setopt_array($curl, array(
@@ -81,7 +81,6 @@ if(!empty($_POST)){
         $response = curl_exec($curl);
         curl_close($curl);
         print_r($response);
-
          // Withdrawal verification URL code END
 
         $curl_cookie="";
