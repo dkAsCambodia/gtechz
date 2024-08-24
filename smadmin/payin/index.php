@@ -28,6 +28,9 @@ function checkout(){
 	}else if($_POST['source_type']=='source6'){     
 			$payin_url=$baseurl."/api/V10/";      //VIZPAY
 			$pramPost['customer_account_number']	=$_POST['customer_account_number']; 
+	}else if($_POST['source_type']=='source7'){     
+			$payin_url=$baseurl."/api/V14/";      //SPEEDPAY
+			$pramPost['customer_account_number']	=$_POST['customer_account_number']; 
 	}else{
 		$payin_url=$baseurl."/api/V1/";
 	}
@@ -319,6 +322,7 @@ function generateRandomString($length = 3) {
 															<option value="source4">source4 (Crypto Payment)</option>
 															<option value="source5">source5 (Card Payment)</option>
 															<option value="source6">source6</option>
+															<option value="source7">source7</option>
                           								</select>
 													</div>
 												</div>
