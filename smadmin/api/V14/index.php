@@ -34,6 +34,7 @@
         if(!empty($_POST)){
             //echo "<pre>"; print_r($_POST); die;
             date_default_timezone_set('Asia/Phnom_Penh');
+            $created_date=date("Y-m-d H:i:s");
             $TransactionDateTime=date("Y-m-d h:i:sA");
             include("../../connection.php");
             try {
@@ -42,7 +43,7 @@
             `customer_phone`, `customer_bank_name`, `customer_bank_code`, `payin_request_id`, `payin_notify_url`, `payin_success_url`, `payin_error_url`, `orderstatus`, `created_date`)
             VALUES ( '$client_ip', '$payin_api_token', '$vstore_id', '$action', '$source', '$source_url', '$source_type', '$Amount', '$Currency', '$product_name', '$remarks',
             '$customer_name', '$customer_email', '$customer_addressline_1', '$customer_addressline_2', '$customer_city', '$customer_state', '$customer_country', '$customer_zip',
-            '$customer_phone', '$customer_bank_name', '$customer_bank_code', '$payin_request_id', '$payin_notify_url', '$payin_success_url', '$payin_error_url', 'pending', '$TransactionDateTime')";
+            '$customer_phone', '$customer_bank_name', '$customer_bank_code', '$payin_request_id', '$payin_notify_url', '$payin_success_url', '$payin_error_url', 'pending', '$created_date')";
                 $result = mysqli_query($link, $query2);
                 if (!empty($result)) {
                     // echo "Data inserted successfully!";
