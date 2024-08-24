@@ -15,6 +15,10 @@ $(document).ready(function(){
                 $(".bank_account_field").css("display", "block");
                 $('#totalAmount').val('100.00');
             }
+            if(sourcetype.text()=='source7'){
+                $(".bank_account_field").css("display", "block");
+                $('#totalAmount').val('300');
+            }
             $.ajax({
                 type:'POST',
                 url:'getBankData.php',
