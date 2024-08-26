@@ -46,7 +46,8 @@
             '$customer_phone', '$customer_bank_name', '$customer_bank_code', '$payin_request_id', '$payin_notify_url', '$payin_success_url', '$payin_error_url', 'pending', '$created_date')";
                 $result = mysqli_query($link, $query2);
                 if (!empty($result)) {
-                    // echo "Data inserted successfully!";
+                    echo "Data inserted successfully!";
+                  die;
                  } else {
                     throw new Exception("Query execution failed: " . mysqli_error($link));  die;
                 }
@@ -69,6 +70,7 @@
                 'CustomerAccountNumber' => $customer_account_number,
                 'CustomerAccountBankCode' => $customer_bank_name
             ));
+              echo "<pre>"; print_r($postFields); die;
             $curl = curl_init();
             curl_setopt_array($curl, array(
                 CURLOPT_URL => 'https://agent-demo.99speedpay.com/api/services/RequestDeposit',
