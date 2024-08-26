@@ -30,7 +30,7 @@ $Transactionid = $result['info']['DepositID'];
  // Code for update Transaction status START
  if(!empty($Transactionid)){
     include("../../connection.php");
-    $query1 = "UPDATE `m_payin` SET `orderid`='$Transactionid',  `status`='1', `payin_aar`='$response' WHERE payin_request_id='$payin_request_id' ";
+    $query1 = "UPDATE `m_payin` SET `orderid`='$Transactionid',  `orderstatus`='Processing', `status`='1', `payin_aar`='$response' WHERE payin_request_id='$payin_request_id' ";
     mysqli_query($link,$query1);
 
     echo "Transaction Information as follows".'<br/>'.

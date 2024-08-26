@@ -3,7 +3,7 @@ $input = file_get_contents('php://input');
 $results = json_decode($input, true);
 if(!empty($results)){
     // Decode JSON data
-    $payin_aar=json_encode($results, true);
+    $payin_all=json_encode($results, true);
     $payin_request_id=$results['RefID'];
     date_default_timezone_set('Asia/Phnom_Penh');
     $pt_timestamp=date("Y-m-d h:i:sA");
@@ -12,7 +12,7 @@ if(!empty($results)){
     
     // Code for update Transaction status START
     include("../../connection.php");
-    $query1 = "UPDATE `m_payin` SET `orderremarks`='$pt_timestamp', `orderstatus`='$orderstatus', `status`='1', `payin_aar`='$payin_aar' WHERE payin_request_id='$payin_request_id' ";
+    $query1 = "UPDATE `m_payin` SET `orderremarks`='$pt_timestamp', `orderstatus`='$orderstatus', `status`='1', `payin_all`='$payin_all' WHERE payin_request_id='$payin_request_id' ";
     mysqli_query($link,$query1);
     // Code for update Transaction status END
 
