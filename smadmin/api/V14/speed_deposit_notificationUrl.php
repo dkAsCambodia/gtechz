@@ -1,10 +1,7 @@
 <?php
-// echo "This is M2p deposit Response page created by DK";
-$results= json_decode(file_get_contents('php://input'), true);
+$input = file_get_contents('php://input');
+$results = json_decode($input, true);
 if(!empty($results)){
-
-    
-    
     // Decode JSON data
     $payin_aar=json_encode($results, true);
     $payin_request_id=$results['RefID'];

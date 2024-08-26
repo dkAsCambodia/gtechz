@@ -46,8 +46,51 @@
             '$customer_phone', '$customer_bank_name', '$customer_bank_code', '$payin_request_id', '$payin_notify_url', '$payin_success_url', '$payin_error_url', 'pending', '$created_date')";
                 $result = mysqli_query($link, $query2);
                 if (!empty($result)) {
-                    echo "Data inserted successfully!";
-                  die;
+                    // echo "Data inserted successfully!";
+                    $postFields = http_build_query(array(
+                        'ClientIp' => $client_ip,
+                        'RefID' => $payin_request_id,
+                        'CustomerID' => 'ZCUST1001',
+                        'CurrencyCode' => $Currency,
+                        'Amount' => $Amount,
+                        'TransactionDateTime' => $TransactionDateTime,
+                        'Remark' => 'payment by Gtech demo',
+                        'CustomerFullName' => $customer_name,
+                        'BankCode' => 'THAIQR',
+                        'UrlFront' => 'https://gtechz.implogix.com/api/V14/speed_deposit_notificationUrl.php',
+                        'CustomerAccountNumber' => $customer_account_number,
+                        'CustomerAccountBankCode' => $customer_bank_name
+                    ));
+                    echo "<pre>"; print_r($postFields);
+                    $curl = curl_init();
+                    curl_setopt_array($curl, array(
+                        CURLOPT_URL => 'https://agent-demo.99speedpay.com/api/services/RequestDeposit',
+                        CURLOPT_RETURNTRANSFER => true,
+                        CURLOPT_ENCODING => '',
+                        CURLOPT_MAXREDIRS => 10,
+                        CURLOPT_TIMEOUT => 0,
+                        CURLOPT_FOLLOWLOCATION => true,
+                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                        CURLOPT_CUSTOMREQUEST => 'POST',
+                        CURLOPT_POSTFIELDS => $postFields,
+                        CURLOPT_HTTPHEADER => array(
+                            'API-AGENT-CODE: PGA001',
+                            'API-KEY: H0pX4tg2IzboclO5Q7ah6oF8L7xft23o',
+                            'API-AGENT-USER-NAME: zaffran',
+                            'Content-Type: application/x-www-form-urlencoded'
+                        ),
+                    ));
+                    $response = curl_exec($curl);
+                    curl_close($curl);
+                    $result= json_decode($response, true);
+                    echo "<pre>"; print_r($result); die; 
+                    ?>
+                    <script>
+                        window.location.href = '<?php echo $result['RedirectionUrl'] ?>';
+                    </script>
+        
+                    <?php
+                    
                  } else {
                     throw new Exception("Query execution failed: " . mysqli_error($link));  die;
                 }
@@ -56,55 +99,9 @@
                 echo "Error: " . $e->getMessage(); die;
             }
 
-            $postFields = http_build_query(array(
-                'ClientIp' => $client_ip,
-                'RefID' => $payin_request_id,
-                'CustomerID' => 'ZCUST1001',
-                'CurrencyCode' => $Currency,
-                'Amount' => $Amount,
-                'TransactionDateTime' => $TransactionDateTime,
-                'Remark' => 'payment by Gtech demo',
-                'CustomerFullName' => $customer_name,
-                'BankCode' => 'THAIQR',
-                'UrlFront' => 'https://gtechz.implogix.com/api/V14/speed_deposit_notificationUrl.php',
-                'CustomerAccountNumber' => $customer_account_number,
-                'CustomerAccountBankCode' => $customer_bank_name
-            ));
-              echo "<pre>"; print_r($postFields); die;
-            $curl = curl_init();
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => 'https://agent-demo.99speedpay.com/api/services/RequestDeposit',
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => '',
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => $postFields,
-                CURLOPT_HTTPHEADER => array(
-                    'API-AGENT-CODE: PGA001',
-                    'API-KEY: H0pX4tg2IzboclO5Q7ah6oF8L7xft23o',
-                    'API-AGENT-USER-NAME: zaffran',
-                    'Content-Type: application/x-www-form-urlencoded'
-                ),
-            ));
-            $response = curl_exec($curl);
-            curl_close($curl);
-            $result= json_decode($response, true);
-            // echo "<pre>";
-            // print_r($result); 
-            ?>
-            <script>
-                window.location.href = '<?php echo $result['RedirectionUrl'] ?>';
-            </script>
-
-            <?php
+            
         }
     
-  
-  
-  
     }else{
     echo "No Data Available or Invalid Request";
 } ?>
