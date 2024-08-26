@@ -57,11 +57,11 @@
                         'Remark' => 'payment by Gtech demo',
                         'CustomerFullName' => $customer_name,
                         'BankCode' => 'THAIQR',
-                        'UrlFront' => 'https://gtechz.implogix.com/api/V14/speed_deposit_notificationUrl.php',
+                        'UrlFront' => 'https://gtechz.implogix.com/api/V14/deposit_response.php',
                         'CustomerAccountNumber' => $customer_account_number,
                         'CustomerAccountBankCode' => $customer_bank_name
                     ));
-                    echo "<pre>"; print_r($postFields);
+                   
                     $curl = curl_init();
                     curl_setopt_array($curl, array(
                         CURLOPT_URL => 'https://agent-demo.99speedpay.com/api/services/RequestDeposit',
@@ -83,7 +83,7 @@
                     $response = curl_exec($curl);
                     curl_close($curl);
                     $result= json_decode($response, true);
-                    echo "<pre>"; print_r($result); die; 
+                    // echo "<pre>"; print_r($result); die; 
                     ?>
                     <script>
                         window.location.href = '<?php echo $result['RedirectionUrl'] ?>';
