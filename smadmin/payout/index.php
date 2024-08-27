@@ -27,6 +27,8 @@ function payout(){
 		$payout_url=$baseurl."/api/V13/";      // Akurateco
 	}else if($_POST['source_type']=='psource6'){     
 		$payout_url=$baseurl."/api/V11/";      //VIZPAY
+	}else if($_POST['source_type']=='psource7'){     
+		$payout_url=$baseurl."/api/V15/";      //SPEEDPAY
 	}else{
 		$payout_url=$baseurl."/api/V6/";
 	}
@@ -309,6 +311,7 @@ function generateRandomString($length = 3) {
 															<option value="psource4">Psource4 (Crypto Payment)</option>
 															<option value="psource5">Psource5 (Card Payment)</option>
 															<option value="psource6">Psource6</option>
+															<option value="psource7">Psource7</option>
                           								</select>
 													</div>
 												</div>

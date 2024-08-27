@@ -24,6 +24,9 @@ $(document).ready(function(){
             if(sourcetype.text()=='Psource6'){
                 $('#totalAmount').val('80.00');
             }
+            if(sourcetype.text()=='Psource7'){
+                $('#totalAmount').val('100');
+            }
             $.ajax({
                 type:'POST',
                 url:'getBankData.php',
