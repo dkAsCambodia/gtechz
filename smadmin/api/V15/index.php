@@ -119,6 +119,7 @@ if(!empty($_POST)){
 
             if(!empty($result2)){
                 // Code for update Transaction status START
+                $Transactionid = $result2['info']['PayoutID'];
                 if($result2['success']=='1'){
                     $orderstatus='Processing';
                     $redirecturl=$payout_success_url;
@@ -132,7 +133,7 @@ if(!empty($_POST)){
                 }else{
                     $status='0';
                 }
-                $query = "UPDATE `m_payout` SET `orderremarks`='$orderremarks', `orderstatus`='$orderstatus', `status`='$status', `payout_aar`='$response2' WHERE payout_request_id='$payout_request_id' ";
+                $query = "UPDATE `m_payout` SET `orderid`='$Transactionid', `orderremarks`='$orderremarks', `orderstatus`='$orderstatus', `status`='$status', `payout_aar`='$response2' WHERE payout_request_id='$payout_request_id' ";
                 $res=mysqli_query($link,$query);
                 // Code for update Transaction status END
                 $callbackURL=$redirecturl.'?pt_transactionId='.base64_encode($payout_request_id).'&pt_email='.base64_encode($customer_email).'&pt_reference='.base64_encode($payout_request_id).'&pt_amount='.base64_encode($Amount).'&pt_timestamp='.base64_encode($orderremarks).'&pt_status='.base64_encode($orderstatus);
