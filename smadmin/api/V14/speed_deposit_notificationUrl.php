@@ -17,9 +17,9 @@ if(!empty($results)){
         // Code for update Deposit Transaction status END
     }else{
         // Code for update Payout Transaction status END
-        include("../../connection.php");
-        $query2 = "UPDATE `m_payout` SET `orderremarks`='$pt_timestamp', `orderstatus`='$orderstatus', `status`='1', `payout_all`='$payin_all' WHERE payout_request_id='$payin_request_id' ";
-        $res=mysqli_query($link,$query2);
+        // include("../../connection.php");
+        // $query2 = "UPDATE `m_payout` SET `orderremarks`='$pt_timestamp', `orderstatus`='$orderstatus', `status`='1', `payout_all`='$payin_all' WHERE payout_request_id='$payin_request_id' ";
+        // $res=mysqli_query($link,$query2);
         // Code for update Payout Transaction status END
     }
     echo "Transaction updated Successfully!";

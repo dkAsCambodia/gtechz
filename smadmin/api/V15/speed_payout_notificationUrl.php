@@ -11,9 +11,9 @@ if(!empty($results)){
     $Type=$results['Type'];
     if($Type=='Deposit'){
         // Code for update Deposit Transaction status START
-        include("../../connection.php");
-        $query1 = "UPDATE `m_payin` SET `orderremarks`='$pt_timestamp', `orderstatus`='$orderstatus', `status`='1', `payin_all`='$payin_all' WHERE payin_request_id='$payin_request_id' ";
-        mysqli_query($link,$query1);
+        // include("../../connection.php");
+        // $query1 = "UPDATE `m_payin` SET `orderremarks`='$pt_timestamp', `orderstatus`='$orderstatus', `status`='1', `payin_all`='$payin_all' WHERE payin_request_id='$payin_request_id' ";
+        // mysqli_query($link,$query1);
         // Code for update Deposit Transaction status END
     }else{
         // Code for update Payout Transaction status END
