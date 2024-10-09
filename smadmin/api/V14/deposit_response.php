@@ -4,7 +4,7 @@ $payin_request_id=$_GET['RefId'];
 
 $curl = curl_init();
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://agent-demo.99speedpay.com/api/services/CheckDeposit',
+  CURLOPT_URL => 'https://agent.99speedpay.com/api/services/CheckDeposit',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
