@@ -75,7 +75,7 @@
                         CURLOPT_POSTFIELDS => $postFields,
                         CURLOPT_HTTPHEADER => array(
                             'API-AGENT-CODE: PGA001',
-                            'API-KEY: H0pX4tg2IzboclO5Q7ah6oF8L7xft23o',
+                            'API-KEY: o11SZxncRMu37KtJ1N4L1ApGcAZCSjiA',
                             'API-AGENT-USER-NAME: zaffran',
                             'Content-Type: application/x-www-form-urlencoded'
                         ),
