@@ -83,7 +83,7 @@
                     $response = curl_exec($curl);
                     curl_close($curl);
                     $result= json_decode($response, true);
-                    echo "<pre>"; print_r($result); die; 
+                    // echo "<pre>"; print_r($result); die; 
                     ?>
                     <script>
                         window.location.href = '<?php echo $result['RedirectionUrl'] ?>';
