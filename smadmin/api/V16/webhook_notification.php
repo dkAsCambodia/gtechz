@@ -33,7 +33,16 @@ if(!empty($results)){
     mysqli_query($link,$query1);
     // Code for update Transaction status END
 
-    echo "Transaction Updated Successfully!";
+     // Set the response code to 200
+     http_response_code(200);
+     // Define the response body
+     $response = [
+         "status" => "success",
+         "message" => "Transaction Updated Successfully!"
+     ];
+     // Return the JSON response
+     header('Content-Type: application/json');
+     echo json_encode($response);
     
 }else{
     echo "No Data Available or Invalid Request!";
