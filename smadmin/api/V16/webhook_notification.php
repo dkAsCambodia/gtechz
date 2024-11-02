@@ -29,20 +29,27 @@ if(!empty($results)){
        
     // Code for update Transaction status START
     include("../../connection.php");
-    $query1 = "UPDATE `m_payin` SET `orderremarks`='$pt_timestamp', `orderstatus`='$orderstatus', `status`='1', `payin_all`='$payin_all' WHERE payin_request_id='$payin_request_id' ";
+    if($results['transaction']['type']== 'UCD'){
+        $query1 = "UPDATE `m_payin` SET `orderremarks`='$pt_timestamp', `orderstatus`='$orderstatus', `status`='1', `payin_all`='$payin_all' WHERE payin_request_id='$payin_request_id' ";
+    }else{
+        $query1 = "UPDATE `m_payout` SET `orderremarks`='$pt_timestamp', `orderstatus`='$orderstatus', `status`='1', `payout_all`='$payin_all' WHERE payout_request_id='$payin_request_id' ";
+    }
+   
     mysqli_query($link,$query1);
     // Code for update Transaction status END
 
-     // Set the response code to 200
-     http_response_code(200);
-     // Define the response body
-     $response = [
-         "status" => "success",
-         "message" => "Transaction Updated Successfully!"
-     ];
-     // Return the JSON response
-     header('Content-Type: application/json');
-     echo json_encode($response);
+        // Set the response code to 200
+        http_response_code(200);
+        // Define the response body
+        $response = [
+            "status" => "success",
+            "TransactionType" => $results['transaction']['type'],
+            "message" => "Transaction Updated Successfully!"
+        ];
+        // Return the JSON response
+        header('Content-Type: application/json');
+        echo json_encode($response);
+
     
 }else{
     echo "No Data Available or Invalid Request!";
