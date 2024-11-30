@@ -56,10 +56,10 @@
    $password='85236c06163862a6ac796f3747064984';
    $signature = sha1(md5(strtoupper($payin_request_id .$Amount .$Currency .$description .$password)));
      $post='{  
-      "merchant_key":"d6943bec-c1e2-11ee-adec-b21a174a55fc",      
+      "merchant_key":"d6943bec-c1e2-11ee-adec-b21a174a55fc",    
       "operation":"purchase",
       "methods":[
-          "card"
+           "help2pay"
       ],
       "order":{
          "number": "'. $payin_request_id .'",
