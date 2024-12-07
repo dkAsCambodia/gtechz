@@ -8,7 +8,8 @@ if(!empty($_POST)){
     $Currency=$_POST['curr'];
     $customer_bank_name=$_POST['customer_bank_name'];
     $Amount=$_POST['price'];
-    date_default_timezone_set('Asia/Kuala_Lumpur');
+    // date_default_timezone_set('Asia/Kuala_Lumpur');
+    date_default_timezone_set('UTC'); //GMT+0
     $dated=date("Y-m-d h:i:sA");
     $Datetime=date("YmdHis");
    $SecurityCode="SRlRgBhfqQTLfgdvvk8c"; // // For H2p Production
